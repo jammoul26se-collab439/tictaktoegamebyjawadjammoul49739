@@ -1,0 +1,202 @@
+body {
+    background-image: url('MainCover.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat : no-repeat;
+    margin: 0;
+    height:100vh;
+}
+
+h1{
+width:fit-content;
+margin:20px auto 0 auto;
+text-align : center ; 
+font-size: 24px;
+border: 2px solid #0066ff;
+background-color: red;
+border-radius: 10px;
+padding: 8px 20px;
+} 
+
+div.TicTacToe1 { 
+width: 300px ;
+height: 300px ; 
+grid-template-columns: repeat(3,1fr); 
+grid-template-rows: repeat(3, 1fr);
+gap: 0px; 
+margin: 0 auto; 
+display: grid;
+} 
+
+#scoreText {
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    font-size: 24px;
+    background-color: red;
+    border:2px solid #0066ff;
+    border-radius: 10px;
+    display: block;
+    width:fit-content;
+    margin: 10px auto;
+    padding: 8px 20px;
+    margin-top: -20px;
+}
+
+div.TicTacToe2 {
+    background-image: url("Timber.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+
+.menuButtons {
+    position: absolute;
+    left: 10px;
+    top: 140px;
+    display: flex;
+    flex-direction: column ;
+    gap: 12px;
+}
+
+.menuButtons button {
+    width: 130px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid blue;
+    background-color: orange;
+    border-radius: 10px;
+    transition: 0.3s ;
+    box-shadow: 0 0 8px rgba(0,102,255,0.4);
+}
+
+.menuButtons button:hover {
+    transform: scale(1.05);
+}
+
+.gameArea {
+    /*margin-left: 220px;*/
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#timer {
+    position: absolute;
+    right: 20px;
+    top: 45px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: red;
+    border: 2px solid #0066ff;
+    border-radius:10px;
+    padding: 8px 20px;
+}
+
+#authorText {
+    margin: 0;
+    font-family: 'Great Vibes' , cursive;
+    font-size: 32px;
+    font-weight: normal;
+    color: #111;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+}
+
+#versionText {
+   margin-top: 5px;
+   margin-bottom: 0;
+   font-size: 18px;
+   font-style: italic;
+   font-family: Arial , sans-serif;
+   color: black;
+}
+
+#footerInfo {
+    position:absolute;
+    right:10px;
+    bottom: 60px;
+    text-align:right;
+}
+
+#copyrightText {
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-family: Georgia , serif;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+#optionsModal {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items:center;
+}
+
+#optionsBox {
+    width: 400px;
+    height: 200px;
+    background-color: black;
+    border: 2px solid #0066ff;
+    border-radius: 15px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#closeOptionsBtn {
+    align-self: center;
+    width: 120px;
+    height: 45px;
+    background-color: orange;
+    border: 2px solid #0066ff;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+#muteBtn {
+    width: 160px;
+    height: 45px;
+    background-color: #ff0000;
+    color: black;
+    border: 2px solid #09ff00;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#optionsContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 ;
+}

@@ -1,0 +1,308 @@
+index.html:
+
+<!Doctype html>
+<html> 
+<head>
+<title>
+Tic Tac toe Game
+</title>
+<link rel="stylesheet" href="monstyle.css">
+</head>
+<body>
+<h1>Tik Tac Toe</h1>
+<p id="scoreText">
+    Player: <span id="playerScore">0</span> | 
+    Ai: <span id="aiScore">0</span>
+</p>
+<br>
+<div class=TicTacToe1 >
+<div class=TicTacToe2 id=Sq1></div>
+<div class=TicTacToe2 id=Sq2></div>
+<div class=TicTacToe2 id=Sq3></div>
+<div class=TicTacToe2 id=Sq4></div>
+<div class=TicTacToe2 id=Sq5></div>
+<div class=TicTacToe2 id=Sq6></div>
+<div class=TicTacToe2 id=Sq7></div>
+<div class=TicTacToe2 id=Sq8></div>
+<div class=TicTacToe2 id=Sq9></div>
+</div>
+<div id="result" style="text-align:center; font-size:20px; margin-top:10px;"></div>
+<div id="timer">00:00</div> <p> By Jawad Jammoul </p>
+<button onclick = "restartGame()">Restart</button>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+monstyle.css:
+
+body {
+    background-image: url('MainCover.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat : no-repeat;
+    margin: 0;
+    height:100vh;
+}
+
+
+
+
+h1{
+text-align : center ; 
+} 
+
+
+
+
+div.TicTacToe1 { 
+width: 300px ;
+height: 300px ; 
+grid-template-columns: repeat(3,1fr); 
+grid-template-rows: repeat(3, 1fr);
+gap: 0px; 
+margin: 0 auto; 
+display: grid;
+} 
+
+
+
+
+
+#scoreText {
+    font-size: 24px;
+}
+
+
+
+
+div.TicTacToe2 {
+    background-image: url("Timber.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+
+
+
+script.js:
+
+const maxScore = 3;     
+let playerScore = 0 , aiScore = 0 , timer = 0; 
+let timerInterval = null; 
+let gameStarted = false , gameOver = false , playerTurn = true , winnerFound = false;
+let squares = document.querySelectorAll(".TicTacToe2");
+let playSound = new Audio('PlayerSoundTrick.mp4') , aiSound = new Audio('AISoundTrick.mp4') , winSound = new Audio('youWinSoundTrick.mp4') , loseSound = new Audio('youLoseSoundTrick.mp4') ; 
+var aiTimeout = null;
+
+for (let i = 0; i < squares.length; i++) {
+    squares[i].addEventListener("click", function() {
+        handleClick(i);
+        if(aiTimeout != null) 
+            clearTimeout(aiTimeout);
+        aiTimeout = setTimeout(function() {
+            if(!gameOver) 
+                aiMove();
+        }, 2000);
+    });
+}
+
+
+
+function handleClick(i) {   
+    if(gameOver || squares[i].textContent !== "" || !playerTurn)
+        return;
+    if(!gameStarted) {
+        startTimer();
+        gameStarted = true;
+    }
+    squares[i].textContent = "X";    
+    playSound.play();      
+    playerTurn = false;
+    squares[i].style.pointerEvents = "none";  
+    checkWinner();
+}
+
+
+
+
+
+function aiMove() {
+    if(gameOver) 
+        return;
+    let emptySquares = [];
+    for (let i = 0; i < squares.length; i++) {
+        if (squares[i].textContent === "") 
+            emptySquares.push(i);
+    }
+    if(emptySquares.length === 0) { 
+        checkWinner();
+         return; }
+    let randomIndex = Math.floor(Math.random() * emptySquares.length);
+    let chosenSquare = emptySquares[randomIndex];
+    squares[chosenSquare].textContent = "O";
+    aiSound.play();
+    squares[chosenSquare].style.pointerEvents = "none";
+    checkWinner();
+    playerTurn = true;
+}
+   
+
+
+
+function checkWinner() {
+    const winningCombos = [
+        [0,1,2],[3,4,5],[6,7,8], [0,3,6],[1,4,7],[2,5,8], [0,4,8], [2,4,6]
+    ];
+    for (let i = 0; i < winningCombos.length; i++) {
+        const combo = winningCombos[i];
+        if(squares[combo[0]].textContent !== "" && squares[combo[0]].textContent === squares[combo[1]].textContent && squares[combo[0]].textContent === squares[combo[2]].textContent) {
+            const winner = squares[combo[0]].textContent;
+            winnerFound = true;
+            if(winner === "X") { 
+               playerScore++;
+               document.getElementById("playerScore").textContent = playerScore;
+            }
+            else {
+                aiScore++;
+                document.getElementById("aiScore").textContent = aiScore;
+            }
+            if (playerScore === 3) {
+                stopTimer();
+                setTimeout(function() {
+                    winSound.play();
+                    document.getElementById("result").textContent = "You Win the Game!";
+                    gameOver = true;
+                }, 600);
+            } else if (aiScore === 3) {
+                stopTimer();
+                setTimeout(function() {
+                    loseSound.play();
+                    document.getElementById("result").textContent = "AI Wins the Game!";
+                    gameOver = true;
+                }, 600);
+            } else {
+                setTimeout(function() {
+                    resetBoard();
+                }, 600);
+            }
+            return; 
+        }
+    } 
+       let isFull = true;
+         for(let i=0;i<squares.length;i++) {
+            if(squares[i].textContent ==="") {
+                isFull = false;
+            }
+         }
+         if(isFull) {
+            setTimeout(function() { 
+                resetBoard();
+            } , 600);
+         }
+     }
+
+
+
+
+
+function resetBoard() {
+    for(let i=0;i<squares.length;i++) {
+        squares[i].textContent="";
+        squares[i].style.pointerEvents="auto";
+    }
+    document.getElementById("result").textContent="";
+    resetTimer();
+    startTimer();
+}
+
+
+
+
+
+
+function restartGame() {
+    playerScore = 0;
+    aiScore = 0;
+    document.getElementById("playerScore").textContent=0;
+    document.getElementById("aiScore").textContent=0;
+    gameOver = false;
+    playerTurn = true;
+    gameStarted = false;
+    for(let i=0;i<squares.length;i++) {
+        squares[i].textContent="";
+        squares[i].style.pointerEvents="auto";
+    }
+    document.getElementById("result").textContent="";
+    if(aiTimeout != null) {
+         clearTimeout(aiTimeout); 
+         aiTimeout=null; }
+    resetTimer();
+}
+
+
+
+
+
+function resetTimer() {
+    if(timerInterval != null) { 
+        clearInterval(timerInterval);
+         timerInterval=null; 
+    }
+    timer=0;
+    document.getElementById("timer").textContent="00:00";
+}
+
+
+
+
+
+function startTimer() {
+    if(timerInterval != null) return;
+    timer=0;
+    document.getElementById("timer").textContent = "00:00";
+    timerInterval = setInterval(function(){
+        timer++;
+        let mins=Math.floor(timer/60);
+        let secs=timer%60;
+        if(mins<10) mins="0"+mins;
+        if(secs<10) secs="0"+secs;
+        document.getElementById("timer").textContent=mins+":"+secs;
+    },1000);
+}
+
+
+
+
+
+function stopTimer() {
+    clearInterval(timerInterval);
+    timerInterval=null;
+}
+
+
+
+
+
+function resetGame() {
+    playerScore=0;
+    aiScore=0;
+    gameOver=false;
+    playerTurn=true;
+    document.getElementById("playerScore").textContent=0;
+    document.getElementById("aiScore").textContent=0;
+    document.getElementById("result").textContent="";
+    if(aiTimeout!=null){ clearTimeout(aiTimeout); aiTimeout=null; }
+    resetBoard();
+}
+
