@@ -221,7 +221,8 @@ div.TicTacToe2 {
     }
 
     #scoreText {
-         font-size: 70px;
+         font-size: 14px;
+         margin-top: 20px;
     }
 
     #timer {
@@ -254,10 +255,6 @@ div.TicTacToe2 {
     
     h1 {
         font-size: 18px;
-    }
-
-    #scoreText {
-        font-size: 14px;
     }
 
     #timer {
