@@ -1,3 +1,8 @@
+if(window.innerWidth <=768 && !localStorage.getItem("mobileAlertShown")) {
+    alert("Best played on a laptop for better layout and controls");
+    localStorage.setItem("mobileAlertShown" , "true");
+}
+
 const maxScore = 3;     
 let playerScore = 0 , aiScore = 0 , timer = 0; 
 let timerInterval = null; 
