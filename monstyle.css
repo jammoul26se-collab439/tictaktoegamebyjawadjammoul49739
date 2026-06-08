@@ -231,7 +231,7 @@ div.TicTacToe2 {
     #footerInfo {
         position: absolute;
         right: 10px;
-        bottom: 60px;
+        bottom: 90px;
         text-align: right;
     }
     .gameArea {
