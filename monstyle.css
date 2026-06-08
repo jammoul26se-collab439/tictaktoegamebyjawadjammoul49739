@@ -217,6 +217,7 @@ div.TicTacToe2 {
     div.TicTacToe2 {
         width: 70px;
         height: 70px;
+        font-size: 38px;
     }
 
     #scoreText {
