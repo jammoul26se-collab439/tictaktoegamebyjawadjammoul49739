@@ -203,6 +203,30 @@ div.TicTacToe2 {
 
 
 @media (max-width: 600px) {
+
+    .menuButtons button {
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
+    }
+    .TicTacToe1 {
+        width: 240px;
+        height: 80px;
+    }
+    .TicTacToe2 {
+        width: 80px;
+        height: 80px;
+        font-size: 18px;
+    }
+
+    #scoreText {
+         font-size: 18px;
+    }
+
+    #timer {
+        font-size: 18px;
+    }
+
     #footerInfo {
         position: absolute;
         right: 10px;
@@ -210,5 +234,6 @@ div.TicTacToe2 {
         text-align: right;
     }
 }
+
 
 
