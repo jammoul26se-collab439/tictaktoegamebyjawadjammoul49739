@@ -205,18 +205,19 @@ div.TicTacToe2 {
 @media (max-width: 600px) {
 
     .menuButtons button {
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
+        width: 115px;
+        height: 45px;
+        font-size: 16px;
     }
     .TicTacToe1 {
-        width: 240px;
-        height: 80px;
+        width: 270px;
+        height: 270px;
     }
-    .TicTacToe2 {
-        width: 80px;
-        height: 80px;
-        font-size: 18px;
+
+    div.TicTacToe2 {
+        width: 85px;
+        height: 85px;
+        font-size: 42px;
     }
 
     #scoreText {
