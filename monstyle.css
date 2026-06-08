@@ -200,3 +200,10 @@ div.TicTacToe2 {
     align-items: center;
     flex: 1 ;
 }
+
+
+@media (max-width: 600px) {
+    #footerInfo {
+        bottom : 180px;
+    }
+}
