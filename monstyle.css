@@ -239,15 +239,15 @@ div.TicTacToe2 {
     }
 
     #authorText {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     #copyrightText {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     #versionText {
-        font-size: 11px;
+        font-size: 14px;
     }
 
 }
