@@ -210,11 +210,13 @@ div.TicTacToe2 {
         font-size: 16px;
     }
     div.TicTacToe1 {
-        width: 255px;
-        height: 255px;
+        width: 270px;
+        height: 270px;
     }
 
     div.TicTacToe2 {
+        width: 90px;
+        height: 90px;
         border: 2px solid black;
         display: flex;
         align-items: center;
