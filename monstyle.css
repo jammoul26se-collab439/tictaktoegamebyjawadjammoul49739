@@ -250,6 +250,18 @@ div.TicTacToe2 {
     #versionText {
         font-size: 12px;
     }
+    
+    h1 {
+        font-size: 18px;
+    }
+
+    #scoreText {
+        font-size: 14px;
+    }
+
+    #timer {
+        font-size: 14px;
+    }
 
 }
 
