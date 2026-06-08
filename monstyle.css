@@ -205,9 +205,9 @@ div.TicTacToe2 {
 @media (max-width: 600px) {
 
     .menuButtons button {
-        width: 115px;
-        height: 45px;
-        font-size: 16px;
+        width: 85px;
+        height: 35px;
+        font-size: 13px;
     }
     div.TicTacToe1 {
         width: 210px;
