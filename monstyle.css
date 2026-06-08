@@ -234,6 +234,9 @@ div.TicTacToe2 {
         bottom: 60px;
         text-align: right;
     }
+    .gameArea {
+        margin-left: 40px;
+    }
 }
 
 
