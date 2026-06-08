@@ -204,7 +204,9 @@ div.TicTacToe2 {
 
 @media (max-width: 600px) {
     #footerInfo {
-        bottom : 120px;
+        position : absolute;
+        right : 10px;
+        bottom : 60px;
     }
 }
 
