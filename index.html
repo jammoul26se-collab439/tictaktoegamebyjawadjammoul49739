@@ -11,8 +11,10 @@
 <body>
 <h1>Smart Tik Tac Toe Game</h1>
 <p id="scoreText">
-    Player: <span id="playerScore">0</span> | 
-    Ai: <span id="aiScore">0</span>
+   <span id="playerLabel">Player</span>:
+   <span id="playerScore">0</span> |
+   <span id="aiLabel">AI</span>:
+   <span id="aiScore">0</span>
 </p>
 <br>
 <div class = "mainContainer">
@@ -50,6 +52,25 @@
     <div id="optionsBox">
         <div id = "optionsContent">
             <button id="muteBtn" onclick ="toggleVolume()">Mute Volume</button>
+            <div id = "languageContainer">
+                <button id = "languageBtn">Language</button>
+                <div id = "languageMenu">
+                    <div class="languageOption" data-lang="en">English</div>
+                    <div class="languageOption" data-lang="ar">اللغة العربية</div>
+                    <div class="languageOption" data-lang="es">Español</div>
+                    <div class="languageOption" data-lang="fr">Français</div>
+                    <div class="languageOption" data-lang="ru">Русский</div>
+                </div>
+            </div>
+            <div id = "difficultyContainer">
+                <button id = "difficultyBtn">Difficulty</button>
+                <div id="difficultyMenu">
+                    <div class = "difficultyOption" id ="easyOption" data-level="easy">Easy</div>
+                    <div class = "difficultyOption" id="normalOption" data-level="normal">Normal</div>
+                    <div class = "difficultyOption" id="hardOption" data-level="hard">Hard</div>
+                    <div class = "difficultyOption" id="twoPlayersOption" data-level="2players">2 Players</div>
+                </div>
+            </div>
         </div>
         <button id="closeOptionsBtn">close</button>
     </div>

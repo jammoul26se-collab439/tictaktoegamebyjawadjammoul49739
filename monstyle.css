@@ -173,13 +173,14 @@ div.TicTacToe2 {
 
 #closeOptionsBtn {
     align-self: center;
-    width: 120px;
-    height: 45px;
+    width: 90px;
+    height: 35px;
     background-color: orange;
     border: 2px solid #0066ff;
     border-radius: 10px;
     font-weight: bold;
     cursor:pointer;
+    margin-top: 20px;
 }
 
 #muteBtn {
@@ -187,18 +188,11 @@ div.TicTacToe2 {
     height: 45px;
     background-color: #ff0000;
     color: black;
-    border: 2px solid #09ff00;
+    border: 2px solid orange;
     border-radius: 10px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-}
-
-#optionsContent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1 ;
 }
 
 
@@ -263,5 +257,104 @@ div.TicTacToe2 {
 
 }
 
+#optionsContent {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    flex: 1;
+}
 
+#languageContainer {
+    position: relative;
+    display: inline-block;
+}
 
+#languageBtn {
+    width: 160px;
+    height: 45px;
+    background-color: #0066ff;
+    color: black;
+    border: 2px solid orange;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#languageMenu {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: -145px;
+    width: 130px;
+    background: white;
+    border: 2px solid #0066ff;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.languageOption {
+    padding: 6px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+.languageOption:last-child {
+    border-bottom: none;
+}
+
+.languageOption:hover {
+    background-color: #dbe9ff;
+}
+
+#difficultyContainer {
+ position: relative;
+ display: inline-block;
+}
+
+#difficultyBtn {
+    width: 160px;
+    height: 45px;
+    background-color: rgb(21, 173, 171);
+    color: black;
+    border: 2px solid orange;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#difficultyMenu {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: -145px;
+    width: 130px;
+    background: white;
+    border: 2px solid #0066ff;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.difficultyOption {
+    padding: 6px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.difficultyOption:last-child{
+    border-bottom: none;
+}
+
+.difficultyOption:hover{
+    background-color: #dbe9ff;
+}
