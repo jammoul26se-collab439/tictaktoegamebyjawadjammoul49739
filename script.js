@@ -380,13 +380,19 @@ function checkWinner() {
                 stopTimer();
                 setTimeout(function() {
                     winSound.play();
-                    document.getElementById("result").textContent = translations[currentLanguage].youWin;
+                    if(difficulty === "2players")
+                      document.getElementById("result").textContent = translations[currentLanguage].player1Wins;
+                    else
+                      document.getElementById("result").textContent = translations[currentLanguage].youWin;
                     gameOver = true;
                 }, 600);
             } else if (aiScore === 3) {
                 stopTimer();
                 setTimeout(function() {
                     loseSound.play();
+                    if(difficulty === "2players")
+                        document.getElementById("result").textContent = translations[currentLanguage].player2Wins;
+                    else
                     document.getElementById("result").textContent = translations[currentLanguage].aiWins;
                     gameOver = true;
                 }, 600);
