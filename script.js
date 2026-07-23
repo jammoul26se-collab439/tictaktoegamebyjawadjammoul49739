@@ -134,7 +134,7 @@ function exitGame() {
 }
 function openAboutUs() {
     playClickSound();
-    window.open("https://aboutme38392.pages.dev", "_blank");
+    window.open("https://mypersonalmainpage5600.jammoul26se.workers.dev/", "_blank");
 }
 
 function handleClick(i) {
